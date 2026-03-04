@@ -65,3 +65,19 @@ router
       .use(middleware.auth())
   })
   .prefix('/api/v1')
+
+router
+  .group(() => {
+    router
+      .group(() => {
+        // marca/desmarca like
+        router.post('/:id/like', [controllers.Likes, 'toggle'])
+
+        // opcional: contar likes de um evento
+        router.get('/:id/likes', [controllers.Likes, 'count'])
+      })
+      .prefix('events') // todas rotas começam com /api/v1/events
+      .as('events')
+      .use(middleware.auth()) // protege com autenticação
+  })
+  .prefix('/api/v1')

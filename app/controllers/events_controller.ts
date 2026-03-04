@@ -35,7 +35,20 @@ export default class EventsController {
   /**
    * Mostrar evento específico
    */
-  async show({ params }: HttpContext) {
+
+  async show({ params, response }: HttpContext) {
+    const event = await Event.find(params.id)
+
+    if (!event) {
+      return response.status(404).send({
+        message: 'Evento não encontrado',
+      })
+    }
+
+    return event
+  }
+
+  async show2({ params }: HttpContext) {
     const event = await Event.findOrFail(params.id)
     await event.load('user')
     return event

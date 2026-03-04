@@ -66,6 +66,18 @@ const routes = {
     tokens: [{"old":"/api/v1/events/:id","type":0,"val":"api","end":""},{"old":"/api/v1/events/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/events/:id","type":0,"val":"events","end":""},{"old":"/api/v1/events/:id","type":1,"val":"id","end":""}],
     types: placeholder as Registry['events.events.destroy']['types'],
   },
+  'events.likes.toggle': {
+    methods: ["POST"],
+    pattern: '/api/v1/events/:id/like',
+    tokens: [{"old":"/api/v1/events/:id/like","type":0,"val":"api","end":""},{"old":"/api/v1/events/:id/like","type":0,"val":"v1","end":""},{"old":"/api/v1/events/:id/like","type":0,"val":"events","end":""},{"old":"/api/v1/events/:id/like","type":1,"val":"id","end":""},{"old":"/api/v1/events/:id/like","type":0,"val":"like","end":""}],
+    types: placeholder as Registry['events.likes.toggle']['types'],
+  },
+  'events.likes.count': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/events/:id/likes',
+    tokens: [{"old":"/api/v1/events/:id/likes","type":0,"val":"api","end":""},{"old":"/api/v1/events/:id/likes","type":0,"val":"v1","end":""},{"old":"/api/v1/events/:id/likes","type":0,"val":"events","end":""},{"old":"/api/v1/events/:id/likes","type":1,"val":"id","end":""},{"old":"/api/v1/events/:id/likes","type":0,"val":"likes","end":""}],
+    types: placeholder as Registry['events.likes.count']['types'],
+  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }

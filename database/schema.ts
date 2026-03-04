@@ -32,6 +32,48 @@ export class AuthAccessTokenSchema extends BaseModel {
   declare expiresAt: DateTime | null
 }
 
+export class EventSchema extends BaseModel {
+  static $columns = ['id', 'userId', 'title', 'description', 'eventDate', 'eventTime', 'city', 'state', 'location', 'imageUrl', 'createdAt', 'updatedAt'] as const
+  $columns = EventSchema.$columns
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare userId: number
+  @column()
+  declare title: string
+  @column()
+  declare description: string | null
+  @column.date()
+  declare eventDate: DateTime
+  @column()
+  declare eventTime: string
+  @column()
+  declare city: string
+  @column()
+  declare state: string
+  @column()
+  declare location: string | null
+  @column()
+  declare imageUrl: string | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class LikeSchema extends BaseModel {
+  static $columns = ['id', 'userId', 'eventId', 'createdAt'] as const
+  $columns = LikeSchema.$columns
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare userId: number
+  @column()
+  declare eventId: number
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime | null
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['id', 'fullName', 'email', 'password', 'createdAt', 'updatedAt'] as const
   $columns = UserSchema.$columns

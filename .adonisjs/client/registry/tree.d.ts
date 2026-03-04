@@ -25,5 +25,9 @@ export interface ApiDefinition {
       update: typeof routes['events.events.update']
       destroy: typeof routes['events.events.destroy']
     }
+    likes: {
+      toggle: typeof routes['events.likes.toggle']
+      count: typeof routes['events.likes.count']
+    }
   }
 }

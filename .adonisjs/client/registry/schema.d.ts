@@ -11,10 +11,10 @@ export interface Registry {
     methods: ["POST"]
     pattern: '/api/v1/auth/signup'
     types: {
-      body: ExtractBody<InferInput<(typeof import('#validators/user').signupValidator)>>
+      body: {}
       paramsTuple: []
       params: {}
-      query: ExtractQuery<InferInput<(typeof import('#validators/user').signupValidator)>>
+      query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#controllers/new_account_controller').default['store']>>>
     }
   }
@@ -22,10 +22,10 @@ export interface Registry {
     methods: ["POST"]
     pattern: '/api/v1/auth/login'
     types: {
-      body: ExtractBody<InferInput<(typeof import('#validators/user').loginValidator)>>
+      body: {}
       paramsTuple: []
       params: {}
-      query: ExtractQuery<InferInput<(typeof import('#validators/user').loginValidator)>>
+      query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#controllers/access_token_controller').default['store']>>>
     }
   }
@@ -115,6 +115,28 @@ export interface Registry {
       params: { id: ParamValue }
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#controllers/events_controller').default['destroy']>>>
+    }
+  }
+  'events.likes.toggle': {
+    methods: ["POST"]
+    pattern: '/api/v1/events/:id/like'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/likes_controller').default['toggle']>>>
+    }
+  }
+  'events.likes.count': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/events/:id/likes'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/likes_controller').default['count']>>>
     }
   }
 }
