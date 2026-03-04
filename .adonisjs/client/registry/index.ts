@@ -30,6 +30,42 @@ const routes = {
     tokens: [{"old":"/api/v1/account/profile","type":0,"val":"api","end":""},{"old":"/api/v1/account/profile","type":0,"val":"v1","end":""},{"old":"/api/v1/account/profile","type":0,"val":"account","end":""},{"old":"/api/v1/account/profile","type":0,"val":"profile","end":""}],
     types: placeholder as Registry['profile.profile.show']['types'],
   },
+  'events.events.store': {
+    methods: ["POST"],
+    pattern: '/api/v1/events',
+    tokens: [{"old":"/api/v1/events","type":0,"val":"api","end":""},{"old":"/api/v1/events","type":0,"val":"v1","end":""},{"old":"/api/v1/events","type":0,"val":"events","end":""}],
+    types: placeholder as Registry['events.events.store']['types'],
+  },
+  'events.events.my_events': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/events/my-events',
+    tokens: [{"old":"/api/v1/events/my-events","type":0,"val":"api","end":""},{"old":"/api/v1/events/my-events","type":0,"val":"v1","end":""},{"old":"/api/v1/events/my-events","type":0,"val":"events","end":""},{"old":"/api/v1/events/my-events","type":0,"val":"my-events","end":""}],
+    types: placeholder as Registry['events.events.my_events']['types'],
+  },
+  'events.events.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/events',
+    tokens: [{"old":"/api/v1/events","type":0,"val":"api","end":""},{"old":"/api/v1/events","type":0,"val":"v1","end":""},{"old":"/api/v1/events","type":0,"val":"events","end":""}],
+    types: placeholder as Registry['events.events.index']['types'],
+  },
+  'events.events.show': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/events/:id',
+    tokens: [{"old":"/api/v1/events/:id","type":0,"val":"api","end":""},{"old":"/api/v1/events/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/events/:id","type":0,"val":"events","end":""},{"old":"/api/v1/events/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['events.events.show']['types'],
+  },
+  'events.events.update': {
+    methods: ["PUT"],
+    pattern: '/api/v1/events/:id',
+    tokens: [{"old":"/api/v1/events/:id","type":0,"val":"api","end":""},{"old":"/api/v1/events/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/events/:id","type":0,"val":"events","end":""},{"old":"/api/v1/events/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['events.events.update']['types'],
+  },
+  'events.events.destroy': {
+    methods: ["DELETE"],
+    pattern: '/api/v1/events/:id',
+    tokens: [{"old":"/api/v1/events/:id","type":0,"val":"api","end":""},{"old":"/api/v1/events/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/events/:id","type":0,"val":"events","end":""},{"old":"/api/v1/events/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['events.events.destroy']['types'],
+  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }

@@ -8,17 +8,36 @@ export type ScannedRoutes = {
     'auth.access_token.store': { paramsTuple?: []; params?: {} }
     'auth.access_token.destroy': { paramsTuple?: []; params?: {} }
     'profile.profile.show': { paramsTuple?: []; params?: {} }
+    'events.events.store': { paramsTuple?: []; params?: {} }
+    'events.events.my_events': { paramsTuple?: []; params?: {} }
+    'events.events.index': { paramsTuple?: []; params?: {} }
+    'events.events.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'events.events.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'events.events.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   GET: {
     'profile.profile.show': { paramsTuple?: []; params?: {} }
+    'events.events.my_events': { paramsTuple?: []; params?: {} }
+    'events.events.index': { paramsTuple?: []; params?: {} }
+    'events.events.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   HEAD: {
     'profile.profile.show': { paramsTuple?: []; params?: {} }
+    'events.events.my_events': { paramsTuple?: []; params?: {} }
+    'events.events.index': { paramsTuple?: []; params?: {} }
+    'events.events.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   POST: {
     'auth.new_account.store': { paramsTuple?: []; params?: {} }
     'auth.access_token.store': { paramsTuple?: []; params?: {} }
     'auth.access_token.destroy': { paramsTuple?: []; params?: {} }
+    'events.events.store': { paramsTuple?: []; params?: {} }
+  }
+  PUT: {
+    'events.events.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+  }
+  DELETE: {
+    'events.events.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
 }
 declare module '@adonisjs/core/types/http' {

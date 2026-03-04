@@ -51,4 +51,70 @@ export interface Registry {
       response: ExtractResponse<Awaited<ReturnType<import('#controllers/profile_controller').default['show']>>>
     }
   }
+  'events.events.store': {
+    methods: ["POST"]
+    pattern: '/api/v1/events'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/events_controller').default['store']>>>
+    }
+  }
+  'events.events.my_events': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/events/my-events'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/events_controller').default['myEvents']>>>
+    }
+  }
+  'events.events.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/events'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/events_controller').default['index']>>>
+    }
+  }
+  'events.events.show': {
+    methods: ["GET","HEAD"]
+    pattern: '/api/v1/events/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/events_controller').default['show']>>>
+    }
+  }
+  'events.events.update': {
+    methods: ["PUT"]
+    pattern: '/api/v1/events/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/events_controller').default['update']>>>
+    }
+  }
+  'events.events.destroy': {
+    methods: ["DELETE"]
+    pattern: '/api/v1/events/:id'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/events_controller').default['destroy']>>>
+    }
+  }
 }

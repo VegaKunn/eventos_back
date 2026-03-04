@@ -16,4 +16,14 @@ export interface ApiDefinition {
       show: typeof routes['profile.profile.show']
     }
   }
+  events: {
+    events: {
+      store: typeof routes['events.events.store']
+      myEvents: typeof routes['events.events.my_events']
+      index: typeof routes['events.events.index']
+      show: typeof routes['events.events.show']
+      update: typeof routes['events.events.update']
+      destroy: typeof routes['events.events.destroy']
+    }
+  }
 }
